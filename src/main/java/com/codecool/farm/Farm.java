@@ -10,27 +10,27 @@ class Farm {
 
     private final List<Animal> animals;
 
-    public Farm(List<Animal> animalList) {
+    Farm(List<Animal> animalList) {
         this.animals = animalList;
     }
 
-    public List<Animal> getAnimals() {
+    List<Animal> getAnimals() {
         return new ArrayList<>(animals);
     }
 
-    public void feedAnimals() {
+    void feedAnimals() {
         animals.forEach(Animal::feed);
     }
 
-    public void butcher(Butcher butcher) {
+    void butcher(Butcher butcher) {
         animals.removeIf(butcher::canButcher);
     }
 
-    public boolean isEmpty() {
+    boolean isEmpty() {
         return animals.size() == 0;
     }
 
-    public List<String> getStatus() {
+    List<String> getStatus() {
         return animals
                 .stream()
                 .map(a -> "There is a " + a.getSize() + " sized "
